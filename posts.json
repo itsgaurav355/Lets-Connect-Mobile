@@ -1,0 +1,51 @@
+{
+    "walpamur.in": {
+        "avatar": "photos/s1.jpg",
+        "post": "photos/s1.jpg",
+        "caption": "A good start to a perfect finish.. New Paint products are launched !! Be ready to colour your life with WALPAMUR",
+        "likes": "690",
+        "comments": "1008",
+        "posted_ago": "22 hours"
+      },
+      "gloriaofficial": {
+        "avatar": "photos/s2.jpg",
+        "post": "photos/s2.jpg",
+        "caption": "Can we go to the tea date?",
+        "likes": "625",
+        "comments": "1",
+        "posted_ago": "3 hours"
+      },
+      "jheel": {
+        "avatar": "photos/s3.jpg",
+        "post": "photos/s3.jpg",
+        "caption": "Jo khaye khate rah jaye ",
+        "likes": "6324",
+        "comments": "47",
+        "posted_ago": "2 days"
+      },
+      "frenchiesworld": {
+        "avatar": "photos/s4.jpg",
+        "post": "photos/s4.jpg",
+        "caption": "All i need is fries",
+        "likes": "2053",
+        "comments": "13",
+        "posted_ago": "20 hours"
+      },
+      "lipstickhub": {
+        "avatar": "photos/s5.jpg",
+        "post": "photos/s5.jpg",
+        "caption": "Now available in multiple shades ... Which is your fav ?",
+        "likes": "121",
+        "comments": "45",
+        "posted_ago": "46 mins"
+      },
+      "cooljam.in": {
+        "avatar": "photos/s6.jpg",
+        "post": "photos/s6.jpg",
+        "caption": "Lets celebrate 2k23 together ",
+        "likes": "58",
+        "comments": "4",
+        "posted_ago": "2 hours"
+      }
+     
+}

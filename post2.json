@@ -1,0 +1,58 @@
+{
+    "shreyas.munde": {
+        "avatar": "photos/2.jpg",
+        "post": "photos/munde.jpg",
+        "caption": "Aaj ho jaye do do hath thakur :)",
+        "likes": "690",
+        "comments": "1008",
+        "posted_ago": "22 hours"
+      },
+      "aditri.adii": {
+        "avatar": "photos/2.jpg",
+        "post": "photos/aditri.jpg",
+        "caption": "Dj Night :)",
+        "likes": "625",
+        "comments": "1",
+        "posted_ago": "3 hours"
+      },
+      "jheel": {
+        "avatar": "photos/2.jpg",
+        "post": "photos/3.jpg",
+        "caption": "With my tech crew",
+        "likes": "6324",
+        "comments": "47",
+        "posted_ago": "2 days"
+      },
+      "reallyaditi": {
+        "avatar": "photos/2.jpg",
+        "post": "photos/6.jpg",
+        "caption": "Hehe",
+        "likes": "2053",
+        "comments": "13",
+        "posted_ago": "20 hours"
+      },
+      "jayuchgaonkar": {
+        "avatar": "photos/2.jpg",
+        "post": "photos/4.jpg",
+        "caption": "Main nahi bataunga",
+        "likes": "121",
+        "comments": "45",
+        "posted_ago": "46 mins"
+      },
+      "aditri_asm": {
+        "avatar": "photos/2.jpg",
+        "post": "photos/8.jpg",
+        "caption": "Traditional day 2k23",
+        "likes": "58",
+        "comments": "4",
+        "posted_ago": "2 hours"
+      },
+      "alishaa": {
+        "avatar": "photos/2.jpg",
+        "post": "photos/9.jpg",
+        "caption": "Dj Night :)",
+        "likes": "10",
+        "comments": "1",
+        "posted_ago": "3 hours"
+      }
+}

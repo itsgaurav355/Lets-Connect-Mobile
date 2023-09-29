@@ -1,0 +1,537 @@
+ScreenManager:
+     LoginPageScreen:
+     SignUpPageScreen:
+     Home:
+     MessageScreen:
+     Connection:
+     #SetUpProfile:
+     Profile:
+     #Connect:
+
+<LoginPageScreen>:
+     name: "Login"
+     MDFloatLayout: 
+          md_bg_color: 0/255,0/255,3/255,1
+          Image:
+               source: "logo3.png"
+               pos_hint:{"y":.35}
+          MDLabel:
+               text:"Log In"
+               pos_hint:{"center_x":0.5,"center_y":0.53}
+               halign: "center"
+               font_name: "Itim-Regular.ttf"
+               font_size: "40sp"
+               theme_text_color: "Custom"
+               text_color: 115/255 , 48/255 , 60/255 ,1
+          MDLabel:
+               id:helplabel
+               text:"Enter Your Email and Password"
+               pos_hint:{"center_x":0.5,"center_y":0.45}
+               halign: "center"
+               font_name: "Itim-Regular.ttf"
+               font_size: "20sp"
+               theme_text_color: "Custom"
+               text_color: 115/255 , 48/255 , 60/255 ,1
+          MDFloatLayout:
+               size_hint: .85 , .08
+               pos_hint:{"center_x":0.5,"center_y":0.38}
+               canvas:
+                    Color:
+                         rgb:(238/255, 238/255 , 238/255,1)
+                    RoundedRectangle:
+                         size:  self.size
+                         pos: self.pos
+                         radius : [25]
+               TextInput:
+                    id:email
+                    hint_text:"Email"
+                    size_hint:1,None
+                    pos_hint:{"center_x":0.5,"center_y":0.5}
+                    height: self.minimum_height
+                    multiline:False
+                    cursor_color: 222/255, 102/255, 124/255,1
+                    cursor_width : "2sp"
+                    foreground_color: 222/255, 102/255, 124/255,1
+                    background_color: 0,0,0,0
+                    padding: 15
+                    font_name : "Itim-Regular.ttf"
+                    font_size: "18sp"
+          
+          MDFloatLayout:
+               size_hint: .85 , .08
+               pos_hint:{"center_x":0.5,"center_y":0.28}
+               canvas:
+                    Color:
+                         rgb:(238/255, 238/255 , 238/255,1)
+                    RoundedRectangle:
+                         size:  self.size
+                         pos: self.pos
+                         radius : [25]     
+               TextInput:
+                    id:password
+                    hint_text:"Password"
+                    password:True
+                    size_hint:1,None
+                    pos_hint:{"center_x":0.5,"center_y":0.5}
+                    height: self.minimum_height
+                    multiline:False
+                    cursor_color: 222/255, 102/255, 124/255,1
+                    cursor_width : "2sp"
+                    foreground_color: 222/255, 102/255, 124/255,1
+                    background_color: 0,0,0,0
+                    padding: 15
+                    font_name : "Itim-Regular.ttf"
+                    font_size: "18sp"
+          MDTextButton:
+               text:"Forget Your Password ? "
+               font_name :"Itim-Regular.ttf"
+               theme_text_color:"Custom"
+               text_color: "#73303c"
+               pos_hint:{"center_x":0.5,"center_y":0.21}
+               on_press:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "SignUp"
+          
+           
+          Button:
+               text:"LOGIN"
+               font_name:"Itim-Regular.ttf"
+               font_size : "20sp"
+               size_hint: .5 , .08
+               pos_hint:{"center_x":0.5,"center_y":0.12}
+               background_color:0,0,0,0
+               on_press:
+                    app.verify_data(email.text,password.text)
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "SignUp"
+                    
+                    
+               canvas.before:
+                    Color:
+                         rgb: 115/255 , 48/255 , 60/255 
+                    RoundedRectangle:
+                         size:self.size
+                         pos:self.pos
+                         radius:[23]
+
+<SignUpPageScreen>
+     name:"SignUp"
+     
+     MDFloatLayout:
+          md_bg_color: 0/255,0/255,3/255,1
+          Image:
+               source: "logo3.png"
+               pos_hint:{"y":.35}
+          
+          MDCard:
+               #background_color:rgba(0,0,0,1)
+               #For Dark theme 
+               #md_bg_color:28/255, 27/255, 28/255 , 1
+               size_hint: 1, 0.7
+               radius: 30,30,0,0
+               #pos_hint:{"center_x": .1 , "center_y" : .1}
+               Carousel: 
+                    id:slide
+                    md_bg_color:28/255, 27/255, 28/255 , 1
+                    MDFloatLayout:
+                         MDIconButton:
+                              icon:'google'
+                              #md_bg_color:0,0,0,1
+                              pos_hint:{"center_x":0.27,"center_y":0.1}
+                              
+                              on_release:
+                                   app.login()
+                                   
+                                   #root.manager.transition.direction = "left"
+                                   #root.manager.current = "home" 
+                         MDRaisedButton:
+                              text:"Login with Google"
+                              font_name:"Itim-Regular.ttf"
+                              theme_text_color:"Custom"
+                              md_bg_color:1,1,1,1
+                              text_color: 0,0,0,1
+                              pos_hint:{"center_x":0.5,"center_y":0.1} 
+                              on_release:
+                                   app.login()
+                                   
+                                   #root.manager.transition.direction = "left"
+                                   #root.manager.current = "home"  
+                         MDTextField:
+                              id :"name"
+                              font_name:"font.ttf"
+                              #required: True
+                              hint_text:"First Name"
+                              size_hint_x: .8
+                              pos_hint: {"center_x" : .5 , "center_y":.48} 
+                         MDTextField:
+                              #required: True
+                              font_name:"font.ttf"
+                              hint_text:"Last Name"
+                              size_hint_x: .8
+                              pos_hint: {"center_x" : .5 , "center_y":.36} 
+                         MDRaisedButton:
+                              font_name:"font.ttf"
+                              text:"NEXT"
+                              font_size : "20sp"
+                              size_hint_x: .8
+                              pos_hint:{"center_x":0.5,"center_y":0.21}
+                              on_release:
+                                   root.ids.slide.load_next(mode="next")
+                                   root.ids.Name.text_color = self.theme_cls.primary_color
+                                   root.ids.progress.value = 100
+                                   root.ids.name.text_color = self.theme_cls.primary_color
+                                   root.ids.name.icon = "check-decagram"
+
+                    MDFloatLayout:
+                         MDTextField:
+                              hint_text:"Email Address"
+                              font_name:"font.ttf"
+                              size_hint_x: .8
+                              #required: True
+                              pos_hint: {"center_x" : .5 , "center_y":.48} 
+                         MDTextField:
+                              #required: True
+                              hint_text:"Phone Number"
+                              font_name:"font.ttf"
+                              size_hint_x: .8
+                              pos_hint: {"center_x" : .5 , "center_y":.36} 
+                         MDRaisedButton:
+                              text:"PREVIOUS"
+                              font_size : "20sp"
+                              font_name:"font.ttf"
+                              size_hint_x: .39
+                              pos_hint:{"center_x":0.3,"center_y":0.21}
+                              on_release:
+                                   root.ids.slide.load_previous()
+                                   root.ids.name.text_color = 0, 0, 0, 1
+                                   root.ids.Name.text_color = 0, 0, 0, 1
+                                   root.ids.progress.value = 0
+                                   root.ids.name.icon = "numeric-1-circle"
+                                   
+                         MDRaisedButton:
+                              text:"NEXT"
+                              font_name:"font.ttf"
+                              font_size : "20sp"
+                              size_hint_x: .39
+                              pos_hint:{"center_x":0.75,"center_y":0.21}
+                              on_release:
+                                   root.ids.slide.load_next(mode="next")
+                                   root.ids.Contact.text_color = self.theme_cls.primary_color
+                                   root.ids.progress1.value = 100
+                                   root.ids.contact.text_color = self.theme_cls.primary_color
+                                   root.ids.contact.icon = "check-decagram"
+                    MDFloatLayout:
+                         MDTextField:
+                              hint_text:"Password"
+                              font_name:"font.ttf"
+                              password:True
+                              size_hint_x: .8
+                              #required: True
+                              pos_hint: {"center_x" : .5 , "center_y":.48} 
+                         MDTextField:
+                              #required: True
+                              hint_text:"Confirm Password"
+                              font_name:"font.ttf"
+                              password:True
+                              size_hint_x: .8
+                              pos_hint: {"center_x" : .5 , "center_y":.36} 
+                         MDRaisedButton:
+                              text:"PREVIOUS"
+                              font_size : "20sp"
+                              font_name:"font.ttf"
+                              size_hint_x: .39
+                              pos_hint:{"center_x":0.3,"center_y":0.21}
+                              on_release:
+                                   root.ids.slide.load_previous()
+                                   root.ids.contact.text_color = 0, 0, 0, 1
+                                   root.ids.Contact.text_color = 0, 0, 0, 1
+                                   root.ids.progress1.value = 0
+                                   root.ids.contact.icon = "numeric-2-circle"
+                         MDRaisedButton:
+                              text:"SUBMIT"
+                              font_size : "20sp"
+                              font_name:"font.ttf"
+                              size_hint_x: .39
+                              pos_hint:{"center_x":0.75,"center_y":0.21} 
+                              on_press: 
+                                   root.manager.transition.direction = "left"
+                                   root.manager.current = "home"
+                                   print("Successfully Registered ")        
+
+          MDLabel:
+               text:"SignUp Form"
+               font_name:"font.ttf"
+               bold:True
+               pos_hint:{"center_x":0.74,"center_y":.6}
+               font_style:"H4"
+          
+          MDLabel:
+               id : Name
+               font_name:"font.ttf"
+               text:"Name"
+               pos_hint:{"center_x":0.57,"center_y":.5}
+               font_style:"H6"
+               theme_text_color :"Custom"
+
+          MDIconButton:
+               id:name
+               icon:"numeric-1-circle"
+               pos_hint:{"center_x":0.1,"center_y":.42}
+               user_font_size:"35sp"
+               theme_text_color: "Custom"
+          MDProgressBar:
+               id: progress
+               size_hint_x: .3
+               pos_hint:{"center_x":0.3,"center_y":.42}
+          
+          MDLabel:
+               id : Contact
+               text:"Contact"
+               font_name:"font.ttf"
+               pos_hint:{"center_x":0.88,"center_y":.5}
+               font_style:"H6"
+               theme_text_color :"Custom"
+          MDIconButton:
+               id:contact
+               icon:"numeric-2-circle"
+               pos_hint:{"center_x":0.5,"center_y":.42}
+               user_font_size:"35sp"
+          MDProgressBar:
+               id: progress1
+               size_hint_x: .3
+               pos_hint:{"center_x":0.7,"center_y":.42}
+          
+
+          MDLabel:
+               id: Submit
+               text:"Submit"
+               font_name:"font.ttf"
+               pos_hint:{"center_x":1.25,"center_y":.5}
+               font_style:"H6"
+               theme_text_color :"Custom"
+               
+          MDIconButton:
+               id : submit
+               icon:"numeric-3-circle"
+               pos_hint:{"center_x":0.9,"center_y":.42}
+               user_font_size:"35sp"
+               theme_text_color: "Custom"
+               
+<Home>:
+     md_bg_color: 1,1,1,1
+     name : "home"
+     MDBoxLayout:
+          orientation:'vertical'
+     
+          MDBoxLayout:
+               padding:'2dp'
+               adaptive_height: True
+
+               MDIconButton:
+                    icon: 'plus'
+                    
+               MDLabel:
+                    text: "Let's Connect"
+                    halign:"center"
+                    valign: "center"
+                    font_size: 25
+                    font_name: "font.ttf"
+
+               MDIconButton:
+                    icon: 'facebook-messenger'
+                    on_release:
+                         root.manager.transition.direction = "left"
+                         root.manager.current = "chat"
+                         
+     
+          MDBoxLayout:
+               ScrollView:
+                    bar_width: 0 
+
+                    MDBoxLayout:
+                         adaptive_height:True
+
+                         MDBoxLayout:
+                              orientation:'vertical'
+                              adaptive_height:True
+                              id: timeline
+          #Bottom Navigation Bar
+          MDBoxLayout:
+          
+               adaptive_height:True
+               spacing:25
+               padding: 10
+
+               MDIconButton:
+                    icon:'home'
+               MDIconButton:
+                    icon:'magnify'
+               MDIconButton:
+                    icon:'connection'
+               MDIconButton:
+                    icon:'heart-outline'
+                    on_release:
+                         app.changeScreen()
+     
+               FitImage:
+                    source:root.profile_picture
+                    size_hint:None,None
+                    size: 25,25
+                    radius: [25]
+                    pos_hint:{"center_x":0.5,"center_y":0.5}
+                    
+                         
+<MessageScreen>:
+     name: "chat"
+     #self.theme_cls.theme_style = "Dark" 
+     #theme_cls.primary_palette = "Teal" #Main color palatte
+     #theme_cls.accent_palette = "Teal"  #second color palette with 400 hue value     
+     #theme_cls.accent_hue = "400"
+     MDBoxLayout:
+          
+          orientation:'vertical'
+          md_bg_color:app.theme_cls.bg_normal #the backgroung color by theme mode 
+          MDTopAppBar:
+               id:logoToolBar
+               height:30
+               title: "Let's Connect"
+               right_action_items:[['dots-vertical',lambda x:x]]
+               margin : 0
+          ScrollView:
+               do_scroll_y:True
+               effect_cls: "ScrollEffect" #Prevents user from scrolling to see what is behind the ScrollView
+               bar_width:0
+               MDBoxLayout:
+                    adaptive_height:True
+                    orientation:'vertical'
+                    md_bg_color:app.theme_cls.primary_color
+                    spacing:15
+          MDLabel:
+               text:""
+               id:label
+               font_name:"font.ttf"
+               #bold:True
+               pos_hint:{"center_x":0.85,"center_y":.65}
+               font_style:"H6"
+
+<Profile>:
+     name:"profile"
+     MDFloatLayout:
+          mg_bg_color: rgba(246,250,255,255)
+          
+          ProfileCard:
+               size_hint_y:0.65
+               pos_hint:{"center_y": 0.7}
+               md_bg_color:1,1,1,1
+               elevation: 6
+               radius: [0,0,20,20]
+               
+               MDIconButton:
+                    icon:"arrow-left"
+                    pos_hint:{"center_y": 0.91}
+                    user_font_size:"20sp"
+                    theme_text_color:"Custom"
+                    text_color: rgba(71,92,119,255)
+                    on_release:
+                         root.manager.transition.direction = "left"
+                         root.manager.current = "home"
+
+               MDIconButton:
+                    icon:"dots-vertical"
+                    pos_hint:{"center_x":.93,"center_y": 0.91}
+                    user_font_size:"20sp"
+                    theme_text_color:"Custom"
+                    text_color: rgba(71,92,119,255)
+          
+               MDLabel:
+                    text:"Your Profile"
+                    font_name:"font.ttf"
+                    font_size:"20sp"
+                    pos_hint:{"center_x": 0.56,"center_y":0.82}
+                    color: rgba(71,92,119,255)
+               
+               MDLabel:
+                    text:"Gaurav Prajapati"
+                    font_name:"font.ttf"
+                    pos_hint:{"center_y":0.44}
+                    halign:"center"
+                    color: rgba(71,92,119,255)
+               MDLabel:
+                    text:"Lets Connect"
+                    font_name:"font.ttf"
+                    pos_hint:{"center_y":0.36}
+                    halign:"center"
+                    font_size:"12sp"
+                    color: rgba(188,202,228,255)
+               MDLabel:
+                    text:"Mumbai,India"
+                    font_name:"font.ttf"
+                    pos_hint:{"center_y":0.3}
+                    halign:"center"
+                    font_size:"12sp"
+                    color: rgba(188,202,220,255)
+               MDGridLayout:
+                    rows:2
+                    cols:3
+                    size_hint: 0.85,0.12
+                    pos_hint:{"center_x":0.5,"center_y":0.15}
+                    MDLabel:
+                         text:"Posts"
+                         halign:"center"
+                         font_name:"font.ttf"
+                         font_size:"12sp"
+                         color: rgba(188,202,228,255)
+                    MDLabel:
+                         text:"Followers"
+                         halign:"center"
+                         font_name:"font.ttf"
+                         font_size:"12sp"
+                         color: rgba(188,202,228,255)
+                    MDLabel:
+                         text:"Follows"
+                         halign:"center"
+                         font_name:"font.ttf"
+                         font_size:"12sp"
+                         color: rgba(188,202,228,255)
+                    MDLabel:
+                         text:"456"
+                         halign:"center"
+                         font_name:"font.ttf"
+                         font_size:"14sp"
+                         color: rgba(71,92,119,255)
+                    MDLabel:
+                         text:"602"
+                         halign:"center"
+                         font_name:"font.ttf"
+                         font_size:"14sp"
+                         color: rgba(71,92,119,255)
+                    MDLabel:
+                         text:"290"
+                         halign:"center"
+                         font_name:"font.ttf"
+                         font_size:"14sp"
+                         color: rgba(71,92,119,255)
+     MDGridLayout:
+          rows:3
+          cols:3
+          size_hint: 0.85,0.12
+          pos_hint:{"center_x":0.5,"center_y":0.28}
+          Image:
+               size_hint:25,25
+               source:"photos/s1.jpg"
+               size_hint:0.35,0.35
+               pos_hint:{"center_x":0.32,"center_y":0.185}
+          Image:
+               source:"photos/s2.jpg"
+               size_hint:25,25
+               size_hint:0.35,0.35
+               pos_hint:{"center_x":0.68,"center_y":0.26}
+          Image:
+               source:"photos/s3.jpg"
+               size_hint:25,25
+               size_hint:0.35,0.35
+               pos_hint:{"center_x":0.68,"center_y":0.11}
+
+
+
+                       
